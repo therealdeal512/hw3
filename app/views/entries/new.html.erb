@@ -1,0 +1,22 @@
+<h1>Log a New Entry for <%= @place.name %></h1>
+
+<%= form_with model: [@place, @entry], local: true do |form| %>
+  <p>
+    <%= form.label :title %>
+    <%= form.text_field :title, required: true %>
+  </p>
+
+  <p>
+    <%= form.label :description %>
+    <%= form.text_area :description, required: true %>
+  </p>
+
+  <p>
+    <%= form.label :occurred_on, "Date" %>
+    <%= form.date_field :occurred_on, required: true %>
+  </p>
+
+  <%= form.submit "Save" %>
+<% end %>
+
+<p><%= link_to "Back to Place", place_path(@place) %></p>
